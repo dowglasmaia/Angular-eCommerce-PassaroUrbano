@@ -21,9 +21,14 @@ public ofertas:Oferta[];
 
   ngOnInit() {
 
-    this.ofertas = this.ofertasServices.getOfertas();
+    //this.ofertas = this.ofertasServices.getOfertas();
 
-    console.log(this.ofertas);
+   // console.log(this.ofertas);
+
+    /* retornado a promise*/
+    this.ofertasServices.getOfertas2().then((ofertas: Oferta[]) => {
+      this.ofertas = ofertas;
+    });
 
   }
 
