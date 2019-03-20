@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
 import { HomeComponent } from './home/home.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { OfertaService } from './services/ofertas.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { RodapeComponent } from './rodape/rodape.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    OfertaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
