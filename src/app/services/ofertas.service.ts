@@ -81,7 +81,7 @@ export class OfertaService {
 
       console.log("Passou por aqui");
 
-      let deu_serto = true;
+      let deu_serto = false;
       if (deu_serto) {
         resolve(this.ofertas);
       }else {
