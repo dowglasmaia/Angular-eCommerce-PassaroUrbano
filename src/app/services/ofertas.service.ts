@@ -7,7 +7,7 @@ export class OfertaService {
     {
       id: 1,
       categoria: "restaurante",
-      titulo: "Super Burger",
+      titulo: "Super Burger X520",
       descricao_oferta: "Rodízio de Mini-hambúrger com opção de entrada.",
       anunciante: "Original Burger",
       valor: 99.90,
@@ -25,7 +25,7 @@ export class OfertaService {
       titulo: "Cozinha Mexicana",
       descricao_oferta: "Almoço ou Jantar com Rodízio Mexicano delicioso.",
       anunciante: "Mexicana",
-      valor: 32.90,
+      valor: 325.90,
       destaque: true,
       imagens: [
         {url: "/assets/ofertas/2/img1.jpg"},
@@ -51,8 +51,62 @@ export class OfertaService {
         {url: "/assets/ofertas/3/img5.jpg"},
         {url: "/assets/ofertas/3/img6.jpg"}
       ]
+    },
+
+    {
+      id: 4,
+      categoria: "diversao",
+      titulo: "Estância das águas",
+      descricao_oferta: "Diversão garantida com piscinas, trilhas e muito mais.",
+      anunciante: "Estância das águas",
+      valor: 31.90,
+      destaque: true,
+      imagens: [
+        {url: "/assets/ofertas/3/img1.jpg"},
+        {url: "/assets/ofertas/3/img2.jpg"},
+        {url: "/assets/ofertas/3/img3.jpg"},
+        {url: "/assets/ofertas/3/img4.jpg"},
+        {url: "/assets/ofertas/3/img5.jpg"},
+        {url: "/assets/ofertas/3/img6.jpg"}
+      ]
+    },
+
+    {
+      id: 4,
+      categoria: "diversao",
+      titulo: "Estância das águas",
+      descricao_oferta: "Diversão garantida com piscinas, trilhas e muito mais.",
+      anunciante: "Estância das águas",
+      valor: 31.90,
+      destaque: true,
+      imagens: [
+        {url: "/assets/ofertas/3/img1.jpg"},
+        {url: "/assets/ofertas/3/img2.jpg"},
+        {url: "/assets/ofertas/3/img3.jpg"},
+        {url: "/assets/ofertas/3/img4.jpg"},
+        {url: "/assets/ofertas/3/img5.jpg"},
+        {url: "/assets/ofertas/3/img6.jpg"}
+      ]
+    },
+
+    {
+      id: 4,
+      categoria: "diversao",
+      titulo: "Estância das águas",
+      descricao_oferta: "Diversão garantida com piscinas, trilhas e muito mais.",
+      anunciante: "Estância das águas",
+      valor: 31.90,
+      destaque: true,
+      imagens: [
+        {url: "/assets/ofertas/3/img1.jpg"},
+        {url: "/assets/ofertas/3/img2.jpg"},
+        {url: "/assets/ofertas/3/img3.jpg"},
+        {url: "/assets/ofertas/3/img4.jpg"},
+        {url: "/assets/ofertas/3/img5.jpg"},
+        {url: "/assets/ofertas/3/img6.jpg"}
+      ]
     }
-  ]
+  ];
 
 
   public getOfertas():Array < Oferta >  {
