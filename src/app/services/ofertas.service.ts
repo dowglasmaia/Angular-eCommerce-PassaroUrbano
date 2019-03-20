@@ -1,6 +1,6 @@
 import {Oferta }from '../shared/oferta';
-import { reject } from 'q';
-import { resolve } from 'q';
+import {reject }from 'q';
+import {resolve }from 'q';
 
 
 export class OfertaService {
@@ -75,13 +75,20 @@ export class OfertaService {
   }
 
   /* metodo com promise */
-  public getOfertas2():Promise <Array<Oferta>>  {
-    return new Promise((resolve, reject) => {
+  public getOfertas2():Promise < Array < Oferta >>  {
+    return new Promise((resolve, reject) =>  {
       //algum tipo de processamento, que ao finalizar, chama a funcção resolve ou rejected.
 
       console.log("Passou por aqui");
-      resolve(this.ofertas);
+
+      let deu_serto = true;
+      if (deu_serto) {
+        resolve(this.ofertas);
+      }else {
+        reject({codigo_error: 404, mensage_error: 'Servidor não encontrado!'});
+      }
     });
+
   }
 
 }

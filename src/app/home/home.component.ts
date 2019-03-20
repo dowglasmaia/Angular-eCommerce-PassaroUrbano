@@ -26,10 +26,11 @@ public ofertas:Oferta[];
    // console.log(this.ofertas);
 
     /* retornado a promise*/
-    this.ofertasServices.getOfertas2().then((ofertas: Oferta[]) => {
-      this.ofertas = ofertas;
-    });
-
-  }
+    this.ofertasServices.getOfertas2()
+      .then(
+        (ofertas:Oferta[]) =>  { this.ofertas = ofertas }, /* executa o resolve */
+        (param:any ) =>  { console.log(param) } /* execura o reject*/
+          );
+    }
 
 }
