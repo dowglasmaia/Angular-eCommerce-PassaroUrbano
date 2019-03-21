@@ -2,8 +2,16 @@ import { Oferta } from '../shared/oferta';
 import { reject } from 'q';
 import { resolve } from 'q';
 
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
+
+@Injectable()
 export class OfertaService {
+
+  constructor(
+    private http: HttpClient
+  ) { }
 
   public ofertas: Oferta[] = [{
     id: 1,
