@@ -1,10 +1,12 @@
 export class Oferta {
-    id: number;
+  id: number;
   categoria: string;
   titulo: string;
   descricao_oferta: string;
   anunciante: string;
   valor: number;
   destaque: boolean;
-  imagens: Array<Object>;
+  img1: string;
+  img2: string;
+  img3: string;
 }

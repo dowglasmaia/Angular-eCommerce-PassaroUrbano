@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
 
     // console.log(this.ofertas);
 
-    /* retornado a promise*/
-    this.ofertasServices.getOfertas2()
+    /* retornado a promise - */
+    this.ofertasServices.getOfertas()
       .then((ofertas: Oferta[]) => {
         this.ofertas = ofertas
       }) /* executa o resolve */
