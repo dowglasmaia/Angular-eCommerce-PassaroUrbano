@@ -19,12 +19,23 @@ export class OfertaService {
       .toPromise()
       .then((resposta: any) => resposta);
   }
-  
+
   public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
     return this.http.get(`http://localhost:8080/ofertas/categorias?categoria=${categoria}`)
       .toPromise()
       .then((resposta: any) => resposta);
 
   }
+
+  public getOfertasPorId(id: number): Promise<Oferta> {
+    return this.http.get(`http://localhost:8080/ofertas/${id}`)
+      .toPromise()
+      .then((resposta: any) => {
+        return resposta
+      });
+
+  }
+
+
 
 }
