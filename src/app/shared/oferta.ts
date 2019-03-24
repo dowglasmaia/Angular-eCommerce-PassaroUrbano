@@ -2,7 +2,7 @@ export class Oferta {
   id: number;
   categoria: string;
   titulo: string;
-  descricao_oferta: string;
+  descricaoOferta: string;
   anunciante: string;
   valor: number;
   destaque: boolean;
