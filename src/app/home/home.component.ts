@@ -20,11 +20,6 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-
-    //this.ofertas = this.ofertasServices.getOfertas();
-
-    // console.log(this.ofertas);
-
     /* retornado a promise - */
     this.ofertasServices.getOfertas()
       .then((ofertas: Oferta[]) => {
