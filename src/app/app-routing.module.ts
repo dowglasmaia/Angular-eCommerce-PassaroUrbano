@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'diversao', component: DiversaoComponent },
   { path: 'restaurante', component: RestauranteComponent },
-  { path: 'oferta', component: OfertaComponent },
+  { path: 'oferta', component: HomeComponent }, /* Garantindo que a Oferta so seja mostrada com a passagem de Um paramento (ID)*/
+  { path: 'oferta/:id', component: OfertaComponent },
 ];
 
 @NgModule({

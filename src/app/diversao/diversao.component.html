@@ -33,7 +33,8 @@
         </div>
 
         <div class="row">
-          <button class="btn btn-outline-success">Ver oferta</button>
+          <!-- Quando for passar paramentos com Link, Usar o [] = [] no routerLink-->
+          <a [routerLink]="['/oferta', oferta.id]" class="btn btn-outline-warning">Ver oferta</a>
         </div>
       </div>
     </div>
