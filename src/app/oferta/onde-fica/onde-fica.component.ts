@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OfertaService } from 'src/app/services/ofertas.service';
 
 @Component({
   selector: 'app-onde-fica',
@@ -9,11 +10,19 @@ import { ActivatedRoute } from '@angular/router';
 export class OndeFicaComponent implements OnInit {
 
  
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+       private route: ActivatedRoute,
+       private ofertaService: OfertaService) { }
+
+  public ondeFica: string[];
 
   ngOnInit() {
-    /* pegando a rota pelo paramentro da rota Pai*/
-    console.log('Id da rota pai: ' , this.route.parent.snapshot.params['id']);
+    
+    /* pegando a rota pelo paramentro da rota Pai, e mostarndo detalhes do atributo referenciado*/
+    this.ofertaService.getOndeFicaOfertaPorID(this.route.parent.snapshot.params['id'])
+    .then((descricao: string[]) => {
+      this.ondeFica = descricao;
+    });
   }
 
 }

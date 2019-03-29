@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment.prod';
 @Injectable()
 export class OfertaService {
 
-  
+
 
   constructor(
     private http: HttpClient) { }
@@ -39,6 +39,24 @@ export class OfertaService {
 
   }
 
+  public getComoUsarOfertaPorID(id: number): Promise<string> {
+    return this.http.get(`${environment.url_api}/ofertas/${id}`)
+      .toPromise()
+      .then((resposta: any) => {
+        //console.log(resposta.descricaoOferta)
+        return resposta.descricaoOferta;
+      })
+  }
+
+
+  public getOndeFicaOfertaPorID(id: number): Promise<string[]> {
+    return this.http.get(`${environment.url_api}/ofertas/${id}`)
+      .toPromise()
+      .then((resposta: any) => {
+        //console.log(resposta.descricaoOferta)
+        return resposta;
+      })
+  }
 
 
 }
