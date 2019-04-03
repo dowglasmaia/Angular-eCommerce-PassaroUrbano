@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OfertaService } from '../services/ofertas.service';
 import { Oferta } from '../shared/oferta';
+import { Observable, Observer } from 'rxjs';
+import { stringify } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -9,7 +11,8 @@ import { Oferta } from '../shared/oferta';
   styleUrls: ['./home.component.css'],
   //providers: [OfertaService]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  
 
   public ofertas: Oferta[];
 
@@ -24,10 +27,18 @@ export class HomeComponent implements OnInit {
     this.ofertasServices.getOfertas()
       .then((ofertas: Oferta[]) => {
         this.ofertas = ofertas
-      }) /* executa o resolve */
+      }) 
       .catch((param: any) => {
         console.log(param)
-      });  /* execura o reject*/
+      }); 
+
+
+
+
   }
 
+  
+  ngOnDestroy(): void {
+    throw new Error("Method not implemented.");
+  }
 }

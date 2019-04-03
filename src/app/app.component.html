@@ -2,24 +2,38 @@
 
 <div class="fixed-top">
     <nav class="navbar navbar-light bg-faded">
-        <div class="container">
-            <a routerLink="/" class="navbar-brand">
-                <img src="/assets/logo.png">
-            </a>
-            <a a href="#">
-                <img src="/assets/carrinho.png">
-            </a>
+
+        <div class="container-fluid">
+            <!--Row com , Logo, Capo pesquisa, e carrinho-->
+            <div class="col-md-4">
+                <a routerLink="/" class="navbar-brand">
+                    <img src="/assets/logo.png">
+                </a>
+            </div>
+            <!--Campo pesquisa-->
+            <div class="col-md-6">
+                <input type="text" class="form-control" 
+                    placeholder="Pesquise por Ofertas"
+                    #termoDaPesquisa
+                    (keyup)="pesquisa(termoDaPesquisa.value)"> <!-- keyup , faz um eventbind de captura de caracter -->
+            </div>
+            <div class="col-md-2">
+                <a a href="#">
+                    <img src="/assets/carrinho.png">
+                </a>
+            </div>
         </div>
     </nav>
+
 
     <div class="menu">
         <div class="container">
             <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="active" routerLink="">
-                             Home
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="">
+                        Home
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" routerLinkActive="active" routerLink="/restaurante">
@@ -27,7 +41,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active"  routerLink="/diversao">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/diversao">
                         Diversão
                     </a>
                 </li>
