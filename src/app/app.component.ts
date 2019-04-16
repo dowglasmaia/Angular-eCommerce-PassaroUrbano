@@ -1,23 +1,40 @@
 import { Component, OnInit } from '@angular/core';
+import { OfertaService } from './services/ofertas.service';
+
+import { Oferta } from './shared/oferta';
+import { Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  providers: [OfertaService]
 })
 export class AppComponent implements OnInit {
 
   title = 'eCommerce';
 
-  constructor() { }
+  ofertas: Oferta[];
+
+  oferta: Oferta;
+
+  constructor(private ofertasSerive: OfertaService) { }
 
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
+
+    this.oferta = new Oferta();
+
+
   }
 
 
   pesquisa(termoDaBusca: string): void {
     /* Pegando os dados o input do HTML*/
-    console.log(termoDaBusca)
+    this.ofertasSerive.pesquisarOfertas(termoDaBusca).subscribe(obj => {
+      this.ofertas = obj;
+      console.log(this.ofertas);
+    })
   }
 }
