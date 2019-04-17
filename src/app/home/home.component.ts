@@ -11,8 +11,8 @@ import { stringify } from '@angular/compiler/src/util';
   styleUrls: ['./home.component.css'],
   //providers: [OfertaService]
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  
+export class HomeComponent implements OnInit {
+
 
   public ofertas: Oferta[];
 
@@ -27,18 +27,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.ofertasServices.getOfertas()
       .then((ofertas: Oferta[]) => {
         this.ofertas = ofertas
-      }) 
+      })
       .catch((param: any) => {
-        console.log(param)
-      }); 
+      });
 
 
 
 
   }
 
-  
-  ngOnDestroy(): void {
-    throw new Error("Method not implemented.");
-  }
+
+
 }

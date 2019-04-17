@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map,retry } from 'rxjs/operators';
 
 
 /* importação para convertere de Observable para Promisse*/
@@ -64,9 +64,9 @@ export class OfertaService {
 
   public pesquisarOfertas(termo: string): Observable<Oferta[]> {
     return this.http.get<Oferta[]>(`${environment.url_api}/ofertas/descricao?descricao=${termo}`)
-      .pipe(map((resposta: any) =>
-        resposta
-      ))
+    .pipe(retry(15))  
+    .pipe(map((resposta: any) =>
+        resposta))
   }
 
 }
