@@ -26,14 +26,8 @@ export class HomeComponent implements OnInit {
     /* retornado a promise - */
     this.ofertasServices.getOfertas()
       .then((ofertas: Oferta[]) => {
-        this.ofertas = ofertas
-      })
-      .catch((param: any) => {
-      });
-
-
-
-
+        this.ofertas = ofertas}),
+      () => console.log("Fuxo de Eventos Completos");
   }
 
 
