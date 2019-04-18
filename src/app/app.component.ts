@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OfertaService } from './services/ofertas.service';
 
 import { Oferta } from './shared/oferta';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
 import { switchMap, debounceTime } from 'rxjs/operators'
 
 
@@ -32,11 +32,16 @@ export class AppComponent implements OnInit {
       .pipe(
         debounceTime(1000), // executa a ação depois do tempo passado
         switchMap((termo: string) => {
-        console.log('Requisição HTTP Aqui ');
-        return this.ofertasSerive.pesquisarOfertas(termo);
-      }))
+          console.log('Requisição HTTP API');
 
-    // this.oferta = new Oferta();
+          if (termo.trim() === '') {
+            //retorna um observable de array de Vazio
+            return of<Oferta[]>([]);
+          } else {
+            return this.ofertasSerive.pesquisarOfertas(termo);
+          }
+
+        }))   
 
     this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
   }
