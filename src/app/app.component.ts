@@ -3,7 +3,7 @@ import { OfertaService } from './services/ofertas.service';
 
 import { Oferta } from './shared/oferta';
 import { Observable, Subject, of } from 'rxjs';
-import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators'
+import { switchMap, debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators'
 
 
 
@@ -27,21 +27,28 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    /* switchMap - agiliza nas buscas*/
+    /* switchMap */
     this.ofertas = this.subjectPesquisa //retorno Oferta[]
-      .pipe(debounceTime(1000)) //executa a ação do switchMap após 1 segundo
-      .pipe(distinctUntilChanged())
-      .pipe(switchMap((termo: string) => {
-        console.log('requisição http para api')
+      .pipe(
+        debounceTime(1000), //executa a ação do switchMap após 1 segundo
+        distinctUntilChanged(),
+        switchMap((termo: string) => {
+          console.log('requisição http para api')
 
-        if (termo.trim() === '') {
-          //retorna um observable de array de Vazio
-          return of<Oferta[]>([]);
-        } else {
-          return this.ofertasSerive.pesquisarOfertas(termo);
-        }
+          if (termo.trim() === '') {
+            //retorna um observable de array de Vazio
+            return of([]);
+          } else {
+            return this.ofertasSerive.pesquisarOfertas(termo);
+          }
 
-      }))
+        }),
+        catchError((error: any) => {
+          console.log(error)
+          return of([]) // retorna um Array de Ofertas Vazia, Evitando quebra a Aplição.
+        })
+      )
+
 
     this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
   }
