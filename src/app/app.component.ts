@@ -3,7 +3,7 @@ import { OfertaService } from './services/ofertas.service';
 
 import { Oferta } from './shared/oferta';
 import { Observable, Subject } from 'rxjs';
-import { switchMap } from 'rxjs/operators'
+import { switchMap, debounceTime } from 'rxjs/operators'
 
 
 
@@ -29,14 +29,16 @@ export class AppComponent implements OnInit {
 
     /* switchMap - agiliza nas buscas*/
     this.ofertas = this.subjectPesquisa
-      .pipe(switchMap((termo: string) => {
+      .pipe(
+        debounceTime(1000), // executa a ação depois do tempo passado
+        switchMap((termo: string) => {
         console.log('Requisição HTTP Aqui ');
         return this.ofertasSerive.pesquisarOfertas(termo);
       }))
 
     // this.oferta = new Oferta();
 
-this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
+    this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
   }
 
 
