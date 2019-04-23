@@ -16,7 +16,7 @@
         <div class="card-block">
           <h4 class="card-title">{{oferta.titulo}}</h4>
           <p class="card-text">{{oferta.descricao_oferta}}</p>
-          <p class="preco">{{oferta.valor}}</p>
+          <p class="preco">{{oferta.valor | currency: 'BRL':true}}</p>
 
           <!-- Quando for passar paramentos com Link, Usar o [] = [] no routerLink-->
           <a [routerLink]="['/oferta', oferta.id]" class="btn btn-outline-warning">Ver oferta</a>

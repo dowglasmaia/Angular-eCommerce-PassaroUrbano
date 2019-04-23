@@ -16,7 +16,7 @@ export class DiversaoComponent implements OnInit {
 
   ngOnInit() {
      /* renderiza a Pagina com a Categoria de Diversão*/
-     this.ofertaService.getOfertasPorCategoria('diversao')
+     this.ofertaService.getOfertasPorCategoria('jogos')
      .then((ofertas: Oferta[]) =>{
        this.ofertas = ofertas;
      })

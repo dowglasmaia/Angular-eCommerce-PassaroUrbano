@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule }    from '@angular/common/http';
+import { NgModule, LOCALE_ID } from '@angular/core';
+
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +20,8 @@ import { TopoComponent } from './topo/topo.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    HomeComponent,  
+    AppComponent,
+    HomeComponent,
     RestauranteComponent,
     DiversaoComponent,
     OfertaComponent,
@@ -29,12 +33,17 @@ import { TopoComponent } from './topo/topo.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    
-    
+
+
   ],
-  providers: [
+  providers: [{provide:LOCALE_ID, useValue: 'pt' }, // parametrizando o padrão de moeda Brasil
     OfertaService
+
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+/* Registrando o padrão Brasileiro para moedas */
+registerLocaleData(localePt);

@@ -29,14 +29,16 @@
 
         </div>
 
-                  
-          <h4>{{dataTest | date:'dd/MM/yyyy' }}</h4>
-        
-
         <div class="row">
           <p><strong>Valor: </strong></p>
-          <p>{{oferta.valor}}</p>
+          <p>{{oferta.valor | currency: 'BRL':true}}</p>
         </div>
+
+        <div class="row">
+          <p><strong>Oferta Valida até: </strong></p>
+          <p>{{dataTest | date:'dd/MM/yyyy' }}</p>
+        </div>
+
 
         <div class="row">
           <!-- Quando for passar paramentos com Link, Usar o [] = [] no routerLink-->
