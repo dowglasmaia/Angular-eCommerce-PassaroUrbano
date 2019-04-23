@@ -19,6 +19,9 @@ export class AppComponent implements OnInit {
 
   ofertas: Observable<Oferta[]>;
 
+  /* Usando um array para interar com NgFor do template */
+  ofertas2: Oferta[];
+
   oferta: Oferta;
 
   private subjectPesquisa: Subject<string> = new Subject<string>();
@@ -31,7 +34,7 @@ export class AppComponent implements OnInit {
     this.ofertas = this.subjectPesquisa //retorno Oferta[]
       .pipe(
         debounceTime(1000), //executa a ação do switchMap após 1 segundo
-        distinctUntilChanged(),
+        distinctUntilChanged(), // para fazer pesquisas Distintas
         switchMap((termo: string) => {
           console.log('requisição http para api')
 
@@ -39,18 +42,20 @@ export class AppComponent implements OnInit {
             //retorna um observable de array de Vazio
             return of([]);
           } else {
+
             return this.ofertasSerive.pesquisarOfertas(termo);
           }
 
         }),
+        // caso de algun Error
         catchError((error: any) => {
           console.log(error)
           return of([]) // retorna um Array de Ofertas Vazia, Evitando quebra a Aplição.
         })
       )
 
-
-    this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
+    this.ofertas.subscribe((ofertas: Oferta[]) => this.ofertas2 = ofertas);
+    console.log(this.ofertas);
   }
 
 
