@@ -13,6 +13,9 @@ export class RestauranteComponent implements OnInit {
 
   public ofertas: Oferta[];
 
+  /* Testando Pipes  para data*/
+  public dataTest: any = new Date(2019, 0, 30);
+
   constructor(private ofertaService: OfertaService) { }
 
   ngOnInit() {
