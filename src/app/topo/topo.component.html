@@ -13,11 +13,13 @@
                 <input type="text" class="form-control" placeholder="Pesquise por Ofertas" #termoDaPesquisa
                     (keyup)="pesquisa(termoDaPesquisa.value)"> <!-- keyup , faz um eventbind de captura de caracter -->
 
-                    <!-- Resultado da Pesquisa do Input de Pesquisa-->
-                <ul class="list-group" style="position: absolute">
+                <!-- Resultado da Pesquisa do Input de Pesquisa-->
+                <ul class="list-group" style="position: absolute; z-index: 999;">
                     <li class="list-group-item" *ngFor="let oferta of ofertas2">
-                        {{oferta.titulo}}
-                    </li>                    
+                        <a [routerLink]="[ '/oferta', oferta.id ]" (click)="limpaPesquisa()">
+                            {{oferta.titulo}}
+                        </a>
+                    </li>
                 </ul>
             </div>
 
