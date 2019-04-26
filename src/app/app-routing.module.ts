@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { OfertaComponent } from './oferta/oferta.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 
 /* Rotas de Navegação do Sistema*/
 const routes: Routes = [
@@ -23,6 +24,8 @@ const routes: Routes = [
         { path: 'onde-fica',component: OndeFicaComponent }
       ]
     },
+
+    { path: 'ordem-compra', component: OrdemCompraComponent }, 
 ];
 
 @NgModule({

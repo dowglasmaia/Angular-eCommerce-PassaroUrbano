@@ -17,6 +17,7 @@ import { OfertaComponent } from './oferta/oferta.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 import { TopoComponent } from './topo/topo.component';
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TopoComponent } from './topo/topo.component';
     OfertaComponent,
     ComoUsarComponent,
     OndeFicaComponent,
-    TopoComponent
+    TopoComponent,
+    OrdemCompraComponent
   ],
   imports: [
     BrowserModule,
