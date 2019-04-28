@@ -109,7 +109,7 @@
 
                 <!-- Dinamizando as Mensagens de validação  do input-->
                 <div *ngIf="numeroEstadoPrimitivo == false">
-                  <div *ngIf="numeroValido; else msgNumerInvalido"> <!-- ng if, else alternario / necessario criar o ng-templete com a variavel de msg-->
+                  <div *ngIf="numeroValido; else msgNumerInvalido"> <!-- ng if, else alternario - necessario criar o ng-templete com a variavel de msg-->
                     <small class="form-text text-success">Ok</small>
                   </div>
                   <ng-template #msgNumerInvalido>
@@ -165,10 +165,8 @@
                 </div>
               </div>
 
-
-
               <hr/>
-                <button type="submit" class="btn btn-primary btn-lg">
+                <button type="submit" class="btn btn-primary btn-lg" [disabled] ="formestado"  >
                   Cofirmar Compra</button>
               </form>
             </div>
