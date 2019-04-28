@@ -1,6 +1,8 @@
 <div class="container">
   <div class="ordem-compra">
-    <form>
+
+    <!-- noValidate impedi  a validação de formulario pelo navagador-->
+    <form novalidate>
 
       <h5>Sua Compra</h5>
       <hr />
@@ -66,23 +68,40 @@
       <h5>Dados de entrega</h5>
       <hr />
 
+      <!-- Formulario de Endereço-->
       <div class="form-row">
-
         <div class="form-group col-md-6">
-          <input type="text" class="form-control is-invalid" placeholder="Endereço" autocomplete="off" minlength="5"
-            required>
+          <input type="text" 
+          class="form-control is-invalid" 
+          [value]="endereco" 
+          #inputEndereco 
+          (input)="atualizaEndereco(inputEndereco.value)" 
+          placeholder="Endereço"
+          autocomplete="off" minlength="5" required>
           <div class="invalid-feedback">Endereço inválido</div>
         </div>
 
         <div class="form-group col-md-2">
-          <input type="text" class="form-control is-valid" placeholder="Número" autocomplete="off" minlength="1"
-            required>
+          <input type="text" 
+          class="form-control is-valid" 
+          [value]="numero" 
+          #inputNumero 
+          (input)="atualizaNumero(inputNumero.value)" 
+          placeholder="Número"
+          autocomplete="off"
+            minlength="1" required>
           <br />
           <small class="form-text text-muted">Ok</small>
         </div>
 
         <div class="form-group col-md-4">
-          <input type="text" class="form-control" placeholder="Complemento" autocomplete="off">
+          <input type="text" 
+          class="form-control" 
+          [value]="complemento" 
+          #inputComplemento
+          (input)="atualizaComplemento(inputComplemento.value)"
+          placeholder="Complemento" 
+          autocomplete="off">
         </div>
 
       </div>
@@ -94,10 +113,13 @@
       <div class="form-row">
 
         <div class="form-group col-md-3">
-          <select class="form-control is-invalid">
-            <option>Selecione uma opção</option>
-            <option>Dinheiro</option>
-            <option>Débito</option>
+          <select class="form-control is-invalid"
+          #selectFormapgto
+          (change)="atualizaFormaPgto(selectFormapgto.value)">
+            <option value ="">Selecione uma opção</option>
+                  <!-- Verifico se o valor selecionado-->
+            <option value="dinheiro" selected ="{{ formaPagamento == 'dinheiro' ? 'selected' : ''}}">Dinheiro</option>
+            <option value="debito" selected ="{{ formaPagamento == 'debito' ? 'selected' : ''}}">Débito</option>
           </select>
 
           <div class="invalid-feedback">Selecione uma forma de pagamento</div>
