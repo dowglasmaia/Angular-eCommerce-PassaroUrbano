@@ -1,5 +1,5 @@
 <div class="fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <div class="container-fluid">
             <!--Row com , Logo, Capo pesquisa, e carrinho-->
@@ -10,13 +10,15 @@
             </div>
             <!--Campo pesquisa-->
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Pesquise por Ofertas" #termoDaPesquisa
+                <input type="text" class="form-control" placeholder="Pesquise
+                    por Ofertas" #termoDaPesquisa
                     (keyup)="pesquisa(termoDaPesquisa.value)"> <!-- keyup , faz um eventbind de captura de caracter -->
-
                 <!-- Resultado da Pesquisa do Input de Pesquisa-->
-                <ul class="list-group" style="position: absolute; z-index: 999;">
+                <ul class="list-group" style="position: absolute; z-index:
+                    999;">
                     <li class="list-group-item" *ngFor="let oferta of ofertas2">
-                        <a [routerLink]="[ '/oferta', oferta.id ]" (click)="limpaPesquisa()">
+                        <a [routerLink]="[ '/oferta', oferta.id ]"
+                            (click)="limpaPesquisa()">
                             {{oferta.titulo}}
                         </a>
                     </li>
@@ -42,12 +44,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" routerLink="/restaurante">
+                    <a class="nav-link" routerLinkActive="active"
+                        routerLink="/restaurante">
                         Restaurantes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" routerLink="/diversao">
+                    <a class="nav-link" routerLinkActive="active"
+                        routerLink="/diversao">
                         Diversão
                     </a>
                 </li>

@@ -7,7 +7,8 @@
       <h5>Sua Compra</h5>
       <hr />
 
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+      <div class="form-row" style="background: #FAFAFA; padding: 20px;
+        border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
           <img src="/assets/ofertas/1/img1.jpg" class="img-fluid">
         </div>
@@ -32,7 +33,8 @@
         </div>
       </div>
 
-      <div class="form-row" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+      <div class="form-row" style="background: #FAFAFA; padding: 20px;
+        border-bottom: solid 1px #F0F0F0">
         <div class="form-group col-sm-1">
           <img src="/assets/ofertas/4/img1.jpg" class="img-fluid">
         </div>
@@ -70,38 +72,42 @@
 
       <!-- Formulario de Endereço-->
       <div class="form-row">
+
         <div class="form-group col-md-6">
-          <input type="text" 
-          class="form-control is-invalid" 
-          [value]="endereco" 
-          #inputEndereco 
-          (input)="atualizaEndereco(inputEndereco.value)" 
-          placeholder="Endereço"
-          autocomplete="off" minlength="5" required>
+          <input type="text"
+            class="form-control {{enderecoEstadoPrimitivo ? '' : (enderecoValido
+            ? 'is-valid' : 'is-invalid')}}"
+            [value]="endereco"
+            #inputEndereco
+            (input)="atualizaEndereco(inputEndereco.value)"
+            placeholder="Endereço"
+            autocomplete="off" minlength="5" required>
           <div class="invalid-feedback">Endereço inválido</div>
         </div>
 
         <div class="form-group col-md-2">
-          <input type="text" 
-          class="form-control is-valid" 
-          [value]="numero" 
-          #inputNumero 
-          (input)="atualizaNumero(inputNumero.value)" 
-          placeholder="Número"
-          autocomplete="off"
-            minlength="1" required>
-          <br />
+          <input type="text"
+            class="form-control {{numeroEstadoPrimitivo ? '' : (numeroValido ?
+            'is-valid' : 'is-invalid')}}"
+            [value]="numero"
+            #inputNumero
+            (input)="atualizaNumero(inputNumero.value)"
+            placeholder="Número"
+            autocomplete="off"
+            minlength="1" required
+            >         
           <small class="form-text text-muted">Ok</small>
+
         </div>
 
         <div class="form-group col-md-4">
-          <input type="text" 
-          class="form-control" 
-          [value]="complemento" 
-          #inputComplemento
-          (input)="atualizaComplemento(inputComplemento.value)"
-          placeholder="Complemento" 
-          autocomplete="off">
+          <input type="text"
+            class="form-control"
+            [value]="complemento"
+            #inputComplemento
+            (input)="atualizaComplemento(inputComplemento.value)"
+            placeholder="Complemento"
+            autocomplete="off">
         </div>
 
       </div>
@@ -111,15 +117,19 @@
       <hr />
 
       <div class="form-row">
-
         <div class="form-group col-md-3">
-          <select class="form-control is-invalid"
-          #selectFormapgto
-          (change)="atualizaFormaPgto(selectFormapgto.value)">
-            <option value ="">Selecione uma opção</option>
-                  <!-- Verifico se o valor selecionado-->
-            <option value="dinheiro" selected ="{{ formaPagamento == 'dinheiro' ? 'selected' : ''}}">Dinheiro</option>
-            <option value="debito" selected ="{{ formaPagamento == 'debito' ? 'selected' : ''}}">Débito</option>
+          <select class="form-control {{formaEstadoPrimitivo ? '' :
+            (formaPagamentoValido ? 'is-valid' : 'is-invalid')}}"
+            #selectFormapgto
+            (change)="atualizaFormaPgto(selectFormapgto.value)">
+            <option value=""> Selecione uma opção </option>
+            <!-- Verifico se o valor selecionado-->
+            <option value="dinheiro" selected="{{ formaPagamento == 'dinheiro' ?
+              'selected' : ''}}">
+              Dinheiro</option>
+            <option value="debito" selected="{{ formaPagamento == 'debito' ?
+              'selected' : ''}}">
+              Débito</option>
           </select>
 
           <div class="invalid-feedback">Selecione uma forma de pagamento</div>
