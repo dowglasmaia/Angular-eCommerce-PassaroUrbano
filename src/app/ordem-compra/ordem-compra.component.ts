@@ -6,7 +6,7 @@ import { OrdemCompraServices } from '../services/ordem-compra.service';
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
 
-  providers:[OrdemCompraServices]
+  providers: [OrdemCompraServices]
 })
 export class OrdemCompraComponent implements OnInit {
 
@@ -35,7 +35,7 @@ export class OrdemCompraComponent implements OnInit {
   constructor(private ordemCompraService: OrdemCompraServices) { }
 
   ngOnInit() {
-    this.ordemCompraService.efetivarCompra();
+    //this.ordemCompraService.efetivarCompra();
   }
 
 
@@ -47,7 +47,7 @@ export class OrdemCompraComponent implements OnInit {
 
     //se a string forma maior q 3 estar valido
     if (this.endereco.length > 3) {
-      this.enderecoValido = true;      
+      this.enderecoValido = true;
     } else {
       this.enderecoValido = false;
     }
@@ -60,7 +60,7 @@ export class OrdemCompraComponent implements OnInit {
 
     this.numeroEstadoPrimitivo = false
     if (this.numero.length > 0) {
-      this.numeroValido = true;     
+      this.numeroValido = true;
     } else {
       this.numeroValido = false;
     }
@@ -80,7 +80,7 @@ export class OrdemCompraComponent implements OnInit {
     this.formaEstadoPrimitivo = false
 
     if (this.formaPagamento.length > 0) {
-      this.formaPagamentoValido = true;      
+      this.formaPagamentoValido = true;
     } else {
       this.formaPagamentoValido = false;
     }

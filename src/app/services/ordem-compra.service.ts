@@ -9,6 +9,7 @@ import { map, retry } from 'rxjs/operators';
 
 
 /* importação para convertere de Observable para Promisse*/
+import { Pedido } from './../shared/pedido';
 
 
 
@@ -18,7 +19,7 @@ export class OrdemCompraServices {
   constructor(
     private http: HttpClient) { }
 
-  public efetivarCompra() {
+  public efetivarCompra(pedido: Pedido) {
     console.log("Comessando a impl Compra") 
    }
 
