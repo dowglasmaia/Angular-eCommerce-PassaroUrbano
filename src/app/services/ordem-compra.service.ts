@@ -20,7 +20,7 @@ export class OrdemCompraServices {
     private http: HttpClient) { }
 
   public efetivarCompra(pedido: Pedido) {
-    console.log("Comessando a impl Compra") 
+    console.log(pedido) 
    }
 
 }

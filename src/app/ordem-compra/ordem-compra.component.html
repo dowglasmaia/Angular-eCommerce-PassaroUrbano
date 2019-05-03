@@ -166,8 +166,9 @@
               </div>
 
               <hr/>
-                <button type="submit" class="btn btn-primary btn-lg" [disabled] ="formestado"  >
-                  Cofirmar Compra</button>
+                <button type="button" (click)="confirmaCompra()" class="btn btn-primary btn-lg" [disabled] ="formestado"  >
+                  Cofirmar Compra
+               </button>
               </form>
             </div>
           </div>
