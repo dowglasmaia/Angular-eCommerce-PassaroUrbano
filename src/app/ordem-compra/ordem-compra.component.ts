@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdemCompraServices } from '../services/ordem-compra.service';
 
 @Component({
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
-  styleUrls: ['./ordem-compra.component.css']
+  styleUrls: ['./ordem-compra.component.css'],
+
+  providers:[OrdemCompraServices]
 })
 export class OrdemCompraComponent implements OnInit {
 
@@ -29,9 +32,10 @@ export class OrdemCompraComponent implements OnInit {
   public formestado: string = 'disabled';
 
 
-  constructor() { }
+  constructor(private ordemCompraService: OrdemCompraServices) { }
 
   ngOnInit() {
+    this.ordemCompraService.efetivarCompra();
   }
 
 
