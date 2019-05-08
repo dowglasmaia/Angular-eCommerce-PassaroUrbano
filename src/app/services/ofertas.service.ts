@@ -66,7 +66,6 @@ export class OfertaService {
     return this.http.get<Oferta[]>(`${environment.url_api}/ofertas/descricao?descricao=${termo}`)
     .pipe(retry(15))  
     .pipe(map((resposta: any) =>
-        resposta))
-  }
+        resposta))}
 
 }

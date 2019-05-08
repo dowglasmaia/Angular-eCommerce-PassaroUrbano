@@ -1,15 +1,13 @@
-import { Oferta } from '../shared/oferta';
-
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 
 import { Observable } from 'rxjs';
-import { map, retry } from 'rxjs/operators';
 
 
 /* importação para convertere de Observable para Promisse*/
 import { Pedido } from './../shared/pedido';
+import { map } from 'rxjs/operators';
 
 
 
@@ -19,8 +17,15 @@ export class OrdemCompraServices {
   constructor(
     private http: HttpClient) { }
 
-  public efetivarCompra(pedido: Pedido) {
-    console.log(pedido) 
+  public efetivarCompra(pedido: Pedido) : Observable<any> {
+    return this.http.post(
+      `${environment.url_api}/pedidos`,
+        JSON.stringify(pedido), 
+        environment.httpOptions
+      )
+      .pipe(map((resposta: Response) => {
+        console.log(resposta.json);
+      }));
    }
 
 }
