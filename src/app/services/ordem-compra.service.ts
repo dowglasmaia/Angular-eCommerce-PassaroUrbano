@@ -20,11 +20,11 @@ export class OrdemCompraServices {
   public efetivarCompra(pedido: Pedido) : Observable<any> {
     return this.http.post(
       `${environment.url_api}/pedidos`,
-        JSON.stringify(pedido), 
+        pedido, 
         environment.httpOptions
       )
       .pipe(map((resposta: Response) => {
-        console.log(resposta.json);
+        console.log(resposta);
       }));
    }
 
